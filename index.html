@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CodeForge — The ultimate interactive coding mastery platform. From zero to staff-level engineer with 10-second muscle memory drills, live memory visualization, and AI-powered Socratic mentoring.">
+  <title>CodeForge — Zero to Absolute Master</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════════════════════════════ -->
+  <nav class="nav" id="main-nav">
+    <a class="nav-brand" href="#" id="nav-brand">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="rgba(245,158,11,0.2)" stroke="#F59E0B"/>
+      </svg>
+      CodeForge
+    </a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><button class="nav-link active" data-view="start" id="nav-start">
+        <span>🏠</span> Home
+      </button></li>
+      <li><button class="nav-link" data-view="blitz" id="nav-blitz">
+        <span>⚡</span> Synapse Blitz
+      </button></li>
+      <li><button class="nav-link" data-view="memory" id="nav-memory">
+        <span>🧠</span> Memory Vision
+      </button></li>
+      <li><button class="nav-link" data-view="roadmap" id="nav-roadmap">
+        <span>🗺️</span> Roadmap
+      </button></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="nav-stat streak-fire" id="nav-streak">
+        <span class="icon">🔥</span>
+        <span id="streak-count">0</span>
+      </div>
+      <div class="nav-stat elo-badge" id="nav-elo">
+        <span class="icon">⚡</span>
+        <span id="elo-count">1200</span>
+      </div>
+      <button class="sound-toggle" id="sound-toggle" title="Toggle Sound" aria-label="Toggle sound effects">
+        🔇
+      </button>
+      <button class="cmdk-trigger" id="cmdk-trigger" title="Command Palette">
+        Search
+        <kbd>Ctrl K</kbd>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       MAIN CONTENT AREA
+       ═══════════════════════════════════════════════════════════════ -->
+  <main class="main" id="main-content">
+
+    <!-- ── Start / Landing View ─────────────────────────────────── -->
+    <section class="view active" id="view-start">
+      <div class="start-screen">
+        <h1 class="start-hero-title">
+          Master coding from<br>zero to absolute best
+        </h1>
+        <p class="start-subtitle">
+          10-second muscle memory drills, live memory visualization, and an AI mentor that teaches you to think — not just to copy.
+        </p>
+        <div class="start-actions">
+          <button class="btn btn-primary" id="start-blitz-btn">
+            ⚡ Start Synapse Blitz
+          </button>
+          <button class="btn btn-secondary" id="start-explore-btn">
+            🗺️ Explore Roadmap
+          </button>
+        </div>
+
+        <div class="feature-grid" id="feature-grid">
+          <div class="feature-card" data-view="blitz">
+            <div class="feature-icon">⚡</div>
+            <h3 class="feature-title">Synapse Blitz</h3>
+            <p class="feature-desc">Sub-10-second micro-drills that convert syntax, bug spotting, and Big-O analysis into pure muscle memory.</p>
+          </div>
+          <div class="feature-card" data-view="memory">
+            <div class="feature-icon">🧠</div>
+            <h3 class="feature-title">Memory Vision</h3>
+            <p class="feature-desc">Watch stack frames push, pointers redirect, and heap objects allocate in real-time as you step through code.</p>
+          </div>
+          <div class="feature-card" data-view="roadmap">
+            <div class="feature-icon">🗺️</div>
+            <h3 class="feature-title">Zero-to-Staff Roadmap</h3>
+            <p class="feature-desc">A structured 5-tier path from computational thinking to distributed systems architecture and AI-native engineering.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Synapse Blitz View ───────────────────────────────────── -->
+    <section class="view" id="view-blitz">
+      <div class="blitz-header">
+        <div class="blitz-title">
+          <h2>⚡ Synapse Blitz</h2>
+          <span class="badge badge-amber">10s Arena</span>
+        </div>
+        <div class="blitz-stats" id="blitz-header-stats">
+          <div class="blitz-stat">
+            <span class="blitz-stat-value" id="blitz-score">0</span>
+            <span class="blitz-stat-label">Score</span>
+          </div>
+          <div class="blitz-stat">
+            <span class="blitz-stat-value streak-fire" id="blitz-streak">0</span>
+            <span class="blitz-stat-label">Streak</span>
+          </div>
+          <div class="blitz-stat">
+            <span class="blitz-stat-value" id="blitz-accuracy">—</span>
+            <span class="blitz-stat-label">Accuracy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timer -->
+      <div class="timer-container" id="blitz-timer-container">
+        <div class="timer-ring-wrap">
+          <svg class="timer-ring-svg" viewBox="0 0 80 80">
+            <circle class="timer-ring-bg" cx="40" cy="40" r="34"/>
+            <circle class="timer-ring-progress" cx="40" cy="40" r="34"
+              stroke-dasharray="213.63"
+              stroke-dashoffset="0"
+              id="timer-ring-progress"/>
+          </svg>
+          <div class="timer-text font-mono" id="timer-text">10.0</div>
+        </div>
+      </div>
+
+      <!-- Drill Area -->
+      <div class="drill-area">
+        <div id="drill-container">
+          <!-- Drill card rendered dynamically by blitz.js -->
+          <div class="drill-card" id="drill-placeholder">
+            <div class="drill-card-body" style="display:flex;align-items:center;justify-content:center;min-height:340px;text-align:center;">
+              <div>
+                <p style="font-size:2rem;margin-bottom:16px;">⚡</p>
+                <h3 style="margin-bottom:8px;">Ready to train?</h3>
+                <p class="drill-prompt">Press the button below to start your muscle memory workout.</p>
+                <br>
+                <button class="btn btn-primary" id="blitz-start-btn">Start Blitz Session</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Side Panel -->
+        <div class="side-panel" id="blitz-side-panel">
+          <div class="stats-card">
+            <h4 style="margin-bottom:12px;font-size:0.8125rem;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.06em;font-weight:600;">Session Stats</h4>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <span class="stat-item-value" id="stat-score" style="color:var(--amber);">0</span>
+                <span class="stat-item-label">Score</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-item-value" id="stat-streak" style="color:var(--coral);">0</span>
+                <span class="stat-item-label">Best Streak</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-item-value" id="stat-elo" style="color:var(--cyan);">1200</span>
+                <span class="stat-item-label">ELO</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-item-value" id="stat-answered" style="color:var(--text-secondary);">0</span>
+                <span class="stat-item-label">Answered</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="ai-hint-card" id="ai-hint-card">
+            <div class="ai-hint-header">
+              <span>🤖</span> Socratic AI Hint
+            </div>
+            <div class="ai-hint-body" id="ai-hint-body">
+              Start a Blitz session to receive contextual hints and guidance from your AI mentor.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Memory Vision View ───────────────────────────────────── -->
+    <section class="view" id="view-memory">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--space-4);flex-wrap:wrap;gap:var(--space-3);">
+        <div style="display:flex;align-items:center;gap:var(--space-3);">
+          <h2>🧠 Memory Vision</h2>
+          <span class="badge badge-violet">Live Execution</span>
+        </div>
+        <p class="text-sm" style="color:var(--text-tertiary);">Step through code and watch memory allocate in real-time</p>
+      </div>
+      <div id="memory-vision-container">
+        <!-- Rendered dynamically by memory-vision.js -->
+      </div>
+    </section>
+
+    <!-- ── Roadmap View ─────────────────────────────────────────── -->
+    <section class="view" id="view-roadmap">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--space-2);flex-wrap:wrap;gap:var(--space-3);">
+        <div style="display:flex;align-items:center;gap:var(--space-3);">
+          <h2>🗺️ Zero-to-Staff Roadmap</h2>
+          <span class="badge badge-cyan">5 Tiers</span>
+        </div>
+        <p class="text-sm" style="color:var(--text-tertiary);">Your structured path to coding mastery</p>
+      </div>
+      <div id="roadmap-container">
+        <!-- Rendered dynamically by roadmap.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       COMMAND PALETTE (Cmd+K / Ctrl+K)
+       ═══════════════════════════════════════════════════════════════ -->
+  <div class="cmdk-overlay" id="cmdk-overlay">
+    <div class="cmdk-dialog" id="cmdk-dialog">
+      <div class="cmdk-input-wrap">
+        <span class="cmdk-icon">🔍</span>
+        <input class="cmdk-input" id="cmdk-input" type="text"
+               placeholder="Search commands, drills, tiers…" autocomplete="off">
+      </div>
+      <div class="cmdk-list" id="cmdk-list">
+        <div class="cmdk-item" data-action="view:start">
+          <span class="cmdk-item-icon">🏠</span> Go to Home
+          <span class="cmdk-item-shortcut">H</span>
+        </div>
+        <div class="cmdk-item" data-action="view:blitz">
+          <span class="cmdk-item-icon">⚡</span> Open Synapse Blitz
+          <span class="cmdk-item-shortcut">B</span>
+        </div>
+        <div class="cmdk-item" data-action="view:memory">
+          <span class="cmdk-item-icon">🧠</span> Open Memory Vision
+          <span class="cmdk-item-shortcut">M</span>
+        </div>
+        <div class="cmdk-item" data-action="view:roadmap">
+          <span class="cmdk-item-icon">🗺️</span> Open Roadmap
+          <span class="cmdk-item-shortcut">R</span>
+        </div>
+        <div class="cmdk-item" data-action="blitz:start">
+          <span class="cmdk-item-icon">▶️</span> Start Blitz Session
+        </div>
+        <div class="cmdk-item" data-action="sound:toggle">
+          <span class="cmdk-item-icon">🔊</span> Toggle Sound
+          <span class="cmdk-item-shortcut">S</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       FEEDBACK OVERLAY (full-screen flash)
+       ═══════════════════════════════════════════════════════════════ -->
+  <div class="feedback-flash" id="feedback-flash"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       COMBO OVERLAY (streak pop-in)
+       ═══════════════════════════════════════════════════════════════ -->
+  <div class="combo-overlay" id="combo-overlay"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SCRIPTS (ES Modules)
+       ═══════════════════════════════════════════════════════════════ -->
+  <script type="module" src="js/app.js"></script>
+
+</body>
+</html>

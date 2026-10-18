@@ -1,0 +1,508 @@
+export const DRILLS = [
+  // 1. bug-spotter
+  {
+    id: 'bs-1',
+    category: 'bug-spotter',
+    difficulty: 2,
+    timeLimit: 10,
+    language: 'python',
+    prompt: 'Find the bug in this Python function.',
+    code: 'def append_to_list(item, my_list=[]):\n    my_list.append(item)\n    return my_list\n\nprint(append_to_list(1))',
+    bugLine: 1,
+    options: null,
+    correctAnswer: '1',
+    explanation: 'Mutable default arguments in Python are evaluated once at function definition time, leading to shared state across calls.',
+    hint: 'What happens if you call this function twice without providing a list?'
+  },
+  {
+    id: 'bs-2',
+    category: 'bug-spotter',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'javascript',
+    prompt: 'Spot the bug in this async function.',
+    code: 'async function fetchUserData(userId) {\n    const response = fetch(`/api/users/${userId}`);\n    const data = await response.json();\n    return data;\n}',
+    bugLine: 2,
+    options: null,
+    correctAnswer: '2',
+    explanation: 'Missing `await` keyword before `fetch`. `response` will be a Promise, and calling `.json()` on it will throw an error.',
+    hint: 'Does fetch return the response directly or a promise?'
+  },
+  {
+    id: 'bs-3',
+    category: 'bug-spotter',
+    difficulty: 1,
+    timeLimit: 10,
+    language: 'javascript',
+    prompt: 'Where is the off-by-one error?',
+    code: 'const arr = [10, 20, 30, 40];\nfor (let i = 0; i <= arr.length; i++) {\n    console.log(arr[i]);\n}',
+    bugLine: 2,
+    options: null,
+    correctAnswer: '2',
+    explanation: 'The loop condition `i <= arr.length` will result in accessing `arr[4]`, which is undefined.',
+    hint: 'Check the bounds of your loop against the array length.'
+  },
+  {
+    id: 'bs-4',
+    category: 'bug-spotter',
+    difficulty: 4,
+    timeLimit: 10,
+    language: 'javascript',
+    prompt: 'Find the React hooks bug.',
+    code: 'function UserProfile({ id }) {\n    if (!id) return null;\n    const [data, setData] = useState(null);\n    useEffect(() => { load(id).then(setData) }, [id]);\n    return <div>{data.name}</div>;\n}',
+    bugLine: 3,
+    options: null,
+    correctAnswer: '3',
+    explanation: 'Hooks must be called unconditionally at the top level. The early return breaks the Rules of Hooks.',
+    hint: 'Are the hooks guaranteed to run in the same order on every render?'
+  },
+  {
+    id: 'bs-5',
+    category: 'bug-spotter',
+    difficulty: 2,
+    timeLimit: 10,
+    language: 'python',
+    prompt: 'Find the indentation or scoping bug.',
+    code: 'def sum_numbers(numbers):\n    total = 0\n    for n in numbers:\n        total += n\n        return total',
+    bugLine: 5,
+    options: null,
+    correctAnswer: '5',
+    explanation: 'The return statement is indented inside the loop, so the function will return after adding only the first number.',
+    hint: 'When does the function return the sum?'
+  },
+
+  // 2. output-predictor
+  {
+    id: 'op-1',
+    category: 'output-predictor',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'javascript',
+    prompt: 'What is the output of this expression?',
+    code: 'typeof NaN',
+    bugLine: null,
+    options: [
+      {text: '"number"', key: '1'},
+      {text: '"NaN"', key: '2'},
+      {text: '"undefined"', key: '3'},
+      {text: '"object"', key: '4'}
+    ],
+    correctAnswer: '1',
+    explanation: 'In JavaScript, NaN (Not-a-Number) is a numeric data type, so typeof NaN evaluates to "number".',
+    hint: 'NaN is part of the IEEE 754 standard for floating-point arithmetic.'
+  },
+  {
+    id: 'op-2',
+    category: 'output-predictor',
+    difficulty: 4,
+    timeLimit: 10,
+    language: 'javascript',
+    prompt: 'What does this JavaScript coercion result in?',
+    code: '[] + {}',
+    bugLine: null,
+    options: [
+      {text: '"[object Object]"', key: '1'},
+      {text: '0', key: '2'},
+      {text: 'undefined', key: '3'},
+      {text: 'TypeError', key: '4'}
+    ],
+    correctAnswer: '1',
+    explanation: 'The empty array is coerced to an empty string "", and the empty object is coerced to "[object Object]". Combining them gives "[object Object]".',
+    hint: 'How are arrays and objects converted to primitives when added?'
+  },
+  {
+    id: 'op-3',
+    category: 'output-predictor',
+    difficulty: 2,
+    timeLimit: 10,
+    language: 'python',
+    prompt: 'What does this list slicing output?',
+    code: '[1, 2, 3, 4, 5][::-1]',
+    bugLine: null,
+    options: [
+      {text: '[5, 4, 3, 2, 1]', key: '1'},
+      {text: '[1, 2, 3, 4, 5]', key: '2'},
+      {text: 'SyntaxError', key: '3'},
+      {text: '[5, 1]', key: '4'}
+    ],
+    correctAnswer: '1',
+    explanation: 'The slice notation `[::-1]` steps through the list backwards, effectively reversing it.',
+    hint: 'The third parameter in the slice notation is the step.'
+  },
+  {
+    id: 'op-4',
+    category: 'output-predictor',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'javascript',
+    prompt: 'What is the output?',
+    code: 'console.log(0.1 + 0.2 === 0.3)',
+    bugLine: null,
+    options: [
+      {text: 'true', key: '1'},
+      {text: 'false', key: '2'},
+      {text: 'undefined', key: '3'},
+      {text: 'NaN', key: '4'}
+    ],
+    correctAnswer: '2',
+    explanation: 'Due to IEEE 754 floating-point math, 0.1 + 0.2 evaluates to 0.30000000000000004.',
+    hint: 'Consider how floating-point numbers are represented in binary.'
+  },
+  {
+    id: 'op-5',
+    category: 'output-predictor',
+    difficulty: 4,
+    timeLimit: 10,
+    language: 'python',
+    prompt: 'What is the output of this Python code?',
+    code: 'x = 256\ny = 256\nprint(x is y)',
+    bugLine: null,
+    options: [
+      {text: 'True', key: '1'},
+      {text: 'False', key: '2'},
+      {text: 'None', key: '3'},
+      {text: 'Error', key: '4'}
+    ],
+    correctAnswer: '1',
+    explanation: 'CPython caches small integers from -5 to 256, so both variables point to the same object in memory.',
+    hint: 'The `is` operator checks for object identity, not value equality. Think about small integer caching.'
+  },
+
+  // 3. bigo-reflex
+  {
+    id: 'bo-1',
+    category: 'bigo-reflex',
+    difficulty: 1,
+    timeLimit: 10,
+    language: 'general',
+    prompt: 'What is the time complexity of accessing an element in an array by index?',
+    code: 'return arr[index];',
+    bugLine: null,
+    options: [
+      {text: 'O(1)', key: '1'},
+      {text: 'O(log N)', key: '2'},
+      {text: 'O(N)', key: '3'},
+      {text: 'O(N²)', key: '4'}
+    ],
+    correctAnswer: '1',
+    explanation: 'Array elements are stored in contiguous memory, allowing direct access in constant time.',
+    hint: 'Does the size of the array affect the time it takes to access the first element?'
+  },
+  {
+    id: 'bo-2',
+    category: 'bigo-reflex',
+    difficulty: 2,
+    timeLimit: 10,
+    language: 'python',
+    prompt: 'Identify the time complexity of Binary Search.',
+    code: 'def search(arr, target):\n    low, high = 0, len(arr) - 1\n    while low <= high:\n        mid = (low + high) // 2\n        if arr[mid] == target: return mid\n        elif arr[mid] < target: low = mid + 1\n        else: high = mid - 1\n    return -1',
+    bugLine: null,
+    options: [
+      {text: 'O(1)', key: '1'},
+      {text: 'O(log N)', key: '2'},
+      {text: 'O(N)', key: '3'},
+      {text: 'O(N log N)', key: '4'}
+    ],
+    correctAnswer: '2',
+    explanation: 'Binary search halves the search space on each iteration, resulting in logarithmic time complexity.',
+    hint: 'How many times do you need to divide N by 2 to reach 1?'
+  },
+  {
+    id: 'bo-3',
+    category: 'bigo-reflex',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'javascript',
+    prompt: 'What is the time complexity of this nested loop?',
+    code: 'for (let i = 0; i < n; i++) {\n    for (let j = 0; j < n; j++) {\n        console.log(i, j);\n    }\n}',
+    bugLine: null,
+    options: [
+      {text: 'O(N)', key: '1'},
+      {text: 'O(N log N)', key: '2'},
+      {text: 'O(N²)', key: '3'},
+      {text: 'O(2^N)', key: '4'}
+    ],
+    correctAnswer: '3',
+    explanation: 'The outer loop runs N times, and for each iteration, the inner loop runs N times. N * N = N².',
+    hint: 'Multiply the work done in the outer loop by the work done in the inner loop.'
+  },
+  {
+    id: 'bo-4',
+    category: 'bigo-reflex',
+    difficulty: 4,
+    timeLimit: 10,
+    language: 'python',
+    prompt: 'Time complexity of sorting a list in Python using `.sort()` (Timsort)?',
+    code: 'my_list.sort()',
+    bugLine: null,
+    options: [
+      {text: 'O(N)', key: '1'},
+      {text: 'O(N log N)', key: '2'},
+      {text: 'O(N²)', key: '3'},
+      {text: 'O(1)', key: '4'}
+    ],
+    correctAnswer: '2',
+    explanation: 'Timsort, the algorithm used by Python, has an average and worst-case time complexity of O(N log N).',
+    hint: 'What is the theoretical lower bound for comparison-based sorting algorithms?'
+  },
+  {
+    id: 'bo-5',
+    category: 'bigo-reflex',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'javascript',
+    prompt: 'Time complexity of finding a key in a Hash Map / Object (average case)?',
+    code: 'const val = myMap[key];',
+    bugLine: null,
+    options: [
+      {text: 'O(1)', key: '1'},
+      {text: 'O(log N)', key: '2'},
+      {text: 'O(N)', key: '3'},
+      {text: 'O(N²)', key: '4'}
+    ],
+    correctAnswer: '1',
+    explanation: 'Hash maps use a hash function to compute an index, providing O(1) average time complexity for lookups.',
+    hint: 'Do you need to scan all keys to find the one you want?'
+  },
+
+  // 4. syntax-fill
+  {
+    id: 'sf-1',
+    category: 'syntax-fill',
+    difficulty: 1,
+    timeLimit: 10,
+    language: 'javascript',
+    prompt: 'Complete the arrow function syntax.',
+    code: 'const add = (a, b) ___ a + b;',
+    bugLine: null,
+    options: null,
+    correctAnswer: '=>',
+    explanation: 'The `=>` symbol is used to define an arrow function in JavaScript.',
+    hint: 'What symbol separates the arguments from the function body in an arrow function?'
+  },
+  {
+    id: 'sf-2',
+    category: 'syntax-fill',
+    difficulty: 2,
+    timeLimit: 10,
+    language: 'python',
+    prompt: 'Import only the `sqrt` function from the `math` module.',
+    code: '___ math import sqrt',
+    bugLine: null,
+    options: null,
+    correctAnswer: 'from',
+    explanation: 'The `from ... import ...` syntax allows you to import specific attributes from a module.',
+    hint: 'You are importing `sqrt` _from_ the `math` module.'
+  },
+  {
+    id: 'sf-3',
+    category: 'syntax-fill',
+    difficulty: 2,
+    timeLimit: 10,
+    language: 'javascript',
+    prompt: 'Export the `utils` object as the default export.',
+    code: '___ default utils;',
+    bugLine: null,
+    options: null,
+    correctAnswer: 'export',
+    explanation: '`export default` is used to export a single value or object from a module as the default export.',
+    hint: 'What keyword makes a variable available outside its module?'
+  },
+  {
+    id: 'sf-4',
+    category: 'syntax-fill',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'javascript',
+    prompt: 'Destructure the `name` property from the `user` object.',
+    code: 'const { ___ } = user;',
+    bugLine: null,
+    options: null,
+    correctAnswer: 'name',
+    explanation: 'Object destructuring allows you to extract properties directly into variables matching the property keys.',
+    hint: 'You want the variable to match the property key `name`.'
+  },
+  {
+    id: 'sf-5',
+    category: 'syntax-fill',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'python',
+    prompt: 'Create a list comprehension that squares all numbers in `nums`.',
+    code: 'squares = [x*x ___ x in nums]',
+    bugLine: null,
+    options: null,
+    correctAnswer: 'for',
+    explanation: 'The syntax for a list comprehension is `[expression for item in iterable]`.',
+    hint: 'What keyword is used to iterate over elements in a sequence?'
+  },
+
+  // 5. cli-reflex
+  {
+    id: 'cr-1',
+    category: 'cli-reflex',
+    difficulty: 1,
+    timeLimit: 10,
+    language: 'general',
+    prompt: 'Command to list all files in a directory, including hidden ones.',
+    code: null,
+    bugLine: null,
+    options: null,
+    correctAnswer: 'ls -a',
+    explanation: 'The `ls` command lists directory contents, and the `-a` (all) flag includes hidden files (starting with a dot).',
+    hint: 'Short for "list all".'
+  },
+  {
+    id: 'cr-2',
+    category: 'cli-reflex',
+    difficulty: 2,
+    timeLimit: 10,
+    language: 'general',
+    prompt: 'Git command to stage all modified and new files.',
+    code: null,
+    bugLine: null,
+    options: null,
+    correctAnswer: 'git add .',
+    explanation: '`git add .` stages all changes in the current directory and subdirectories for the next commit.',
+    hint: 'You are adding everything in the current directory (represented by a dot).'
+  },
+  {
+    id: 'cr-3',
+    category: 'cli-reflex',
+    difficulty: 2,
+    timeLimit: 10,
+    language: 'general',
+    prompt: 'Command to check your current working directory path.',
+    code: null,
+    bugLine: null,
+    options: null,
+    correctAnswer: 'pwd',
+    explanation: '`pwd` stands for Print Working Directory. It outputs the absolute path of the current directory.',
+    hint: 'Print Working Directory.'
+  },
+  {
+    id: 'cr-4',
+    category: 'cli-reflex',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'general',
+    prompt: 'Git command to check the status of your working tree.',
+    code: null,
+    bugLine: null,
+    options: null,
+    correctAnswer: 'git status',
+    explanation: '`git status` displays the state of the working directory and the staging area.',
+    hint: 'You want to know the current state or "status" of your repository.'
+  },
+  {
+    id: 'cr-5',
+    category: 'cli-reflex',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'general',
+    prompt: 'Create a new directory named "project".',
+    code: null,
+    bugLine: null,
+    options: null,
+    correctAnswer: 'mkdir project',
+    explanation: '`mkdir` stands for "make directory" and is used to create new folders.',
+    hint: 'Make DIRectory.'
+  },
+
+  // 6. pattern-match
+  {
+    id: 'pm-1',
+    category: 'pattern-match',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'general',
+    prompt: 'Find the shortest path in an unweighted graph.',
+    code: null,
+    bugLine: null,
+    options: [
+      {text: 'Depth-First Search (DFS)', key: '1'},
+      {text: 'Breadth-First Search (BFS)', key: '2'},
+      {text: 'Dynamic Programming', key: '3'},
+      {text: 'Binary Search', key: '4'}
+    ],
+    correctAnswer: '2',
+    explanation: 'BFS explores the graph level by level, ensuring that the first time a node is reached, it is via the shortest path in an unweighted graph.',
+    hint: 'Which algorithm explores neighbors level by level?'
+  },
+  {
+    id: 'pm-2',
+    category: 'pattern-match',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'general',
+    prompt: 'Find the maximum sum of a contiguous subarray of size K.',
+    code: null,
+    bugLine: null,
+    options: [
+      {text: 'Two Pointers', key: '1'},
+      {text: 'Sliding Window', key: '2'},
+      {text: 'Divide and Conquer', key: '3'},
+      {text: 'Backtracking', key: '4'}
+    ],
+    correctAnswer: '2',
+    explanation: 'The Sliding Window pattern is ideal for problems involving contiguous subarrays or sublists of a specific size.',
+    hint: 'Imagine a frame of size K moving across the array.'
+  },
+  {
+    id: 'pm-3',
+    category: 'pattern-match',
+    difficulty: 4,
+    timeLimit: 10,
+    language: 'general',
+    prompt: 'Generate all possible permutations of an array.',
+    code: null,
+    bugLine: null,
+    options: [
+      {text: 'Sliding Window', key: '1'},
+      {text: 'Two Pointers', key: '2'},
+      {text: 'Backtracking', key: '3'},
+      {text: 'Greedy', key: '4'}
+    ],
+    correctAnswer: '3',
+    explanation: 'Backtracking explores all potential solutions and backtracks when a path cannot yield a valid solution, perfect for permutations.',
+    hint: 'You need to build candidates and abandon them if they are not valid.'
+  },
+  {
+    id: 'pm-4',
+    category: 'pattern-match',
+    difficulty: 2,
+    timeLimit: 10,
+    language: 'general',
+    prompt: 'Find if a cycle exists in a Linked List.',
+    code: null,
+    bugLine: null,
+    options: [
+      {text: 'Fast and Slow Pointers', key: '1'},
+      {text: 'Sliding Window', key: '2'},
+      {text: 'Binary Search', key: '3'},
+      {text: 'Dynamic Programming', key: '4'}
+    ],
+    correctAnswer: '1',
+    explanation: 'The Fast and Slow Pointers pattern (Tortoise and Hare) is standard for detecting cycles in a sequence.',
+    hint: 'If two runners are on a circular track, the faster one will eventually lap the slower one.'
+  },
+  {
+    id: 'pm-5',
+    category: 'pattern-match',
+    difficulty: 4,
+    timeLimit: 10,
+    language: 'general',
+    prompt: 'Find the longest common subsequence between two strings.',
+    code: null,
+    bugLine: null,
+    options: [
+      {text: 'Greedy', key: '1'},
+      {text: 'Two Pointers', key: '2'},
+      {text: 'Dynamic Programming', key: '3'},
+      {text: 'Breadth-First Search', key: '4'}
+    ],
+    correctAnswer: '3',
+    explanation: 'Dynamic Programming solves complex problems by breaking them down into simpler overlapping subproblems, like comparing prefixes of strings.',
+    hint: 'The solution depends on the solutions to smaller subproblems (prefixes of the strings).'
+  }
+];
