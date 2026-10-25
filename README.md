@@ -1,5 +1,9 @@
 # ⚡ CodeForge — Zero to Absolute Master
 
+[![CI Verification](https://github.com/heyitsak/codeforge/actions/workflows/ci.yml/badge.svg)](https://github.com/heyitsak/codeforge/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
+[![Handcrafted](https://img.shields.io/badge/Code-100%25%20Handcrafted-blueviolet?style=flat-square)](#tech-stack)
+
 An interactive coding mastery web platform designed to build rapid developer intuition through 10-second muscle memory drills, interactive memory visualization, and structured learning roadmaps.
 
 ## 🚀 Features

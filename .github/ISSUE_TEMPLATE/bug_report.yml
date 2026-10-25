@@ -1,0 +1,12 @@
+name: 🐛 Bug Report
+description: Report an issue in CodeForge exercises or editor
+title: "fix: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: bug
+    attributes:
+      label: Bug Description
+      description: Describe the issue encountered.
+    validations:
+      required: true

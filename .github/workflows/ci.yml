@@ -1,0 +1,26 @@
+name: CI Verification
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Code & Structure Checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Verify Essential Files
+        run: |
+          test -f index.html || exit 1
+          test -f LICENSE || exit 1
+          test -d css || exit 1
+          test -d js || exit 1
+          echo "All core files and directories verified."
