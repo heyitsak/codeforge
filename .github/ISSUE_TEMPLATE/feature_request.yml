@@ -1,0 +1,12 @@
+name: 🚀 Feature Request
+description: Propose a new drill, problem, or feature for CodeForge
+title: "feat: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: feature
+    attributes:
+      label: Feature Description
+      description: Describe your proposed feature.
+    validations:
+      required: true
