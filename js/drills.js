@@ -664,4 +664,23 @@ export const DRILLS = [
     explanation: "map applies the callback to every element, doubling each value to [2, 4, 6].",
     hint: "Multiply every element by 2."
   },
+  {
+    id: 'op-7',
+    category: 'output-predictor',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'python',
+    prompt: "What does string slicing print?",
+    code: "s = 'Antigravity'\nprint(s[0:4])",
+    bugLine: null,
+    options: [
+      {text: "Anti", key: "1"},
+      {text: "Antig", key: "2"},
+      {text: "Ant", key: "3"},
+      {text: "ntig", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "Slice [0:4] starts at index 0 and stops before index 4 ('A', 'n', 't', 'i').",
+    hint: "Slicing in Python is non-inclusive at the stop index."
+  },
 ];
