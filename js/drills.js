@@ -1241,4 +1241,23 @@ export const DRILLS = [
     explanation: "-u (--include-untracked) stashes newly created untracked files along with tracked modifications.",
     hint: "-u flag includes untracked files."
   },
+  {
+    id: 'cr-10',
+    category: 'cli-reflex',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'bash',
+    prompt: "How do you apply a specific commit from another branch onto your current branch?",
+    code: "$ git ... <commit-sha>",
+    bugLine: null,
+    options: [
+      {text: "git cherry-pick", key: "1"},
+      {text: "git pull", key: "2"},
+      {text: "git rebase -i", key: "3"},
+      {text: "git reset --hard", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "git cherry-pick applies the diff introduced by a specific existing commit onto HEAD.",
+    hint: "Picks a single commit like a cherry."
+  },
 ];
