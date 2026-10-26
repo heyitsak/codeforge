@@ -968,4 +968,23 @@ export const DRILLS = [
     explanation: "Balanced trees maintain height O(log n), halving search space at each branch.",
     hint: "Logarithmic tree depth bounds comparison steps."
   },
+  {
+    id: 'bo-13',
+    category: 'bigo-reflex',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'dsa',
+    prompt: "What is the time complexity of building a heap from an unordered array of n items?",
+    code: "function buildHeap(arr) { ... }",
+    bugLine: null,
+    options: [
+      {text: "O(n)", key: "1"},
+      {text: "O(n log n)", key: "2"},
+      {text: "O(n^2)", key: "3"},
+      {text: "O(log n)", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "Bottom-up heap construction via sift-down runs in linear O(n) mathematical time.",
+    hint: "Sift-down operations decrease as depth increases."
+  },
 ];
