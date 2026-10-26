@@ -816,4 +816,23 @@ export const DRILLS = [
     explanation: "Array iteration methods skip empty slots (holes) in sparse arrays.",
     hint: "Empty slots are skipped during callback invocation."
   },
+  {
+    id: 'op-15',
+    category: 'output-predictor',
+    difficulty: 2,
+    timeLimit: 10,
+    language: 'python',
+    prompt: "What does string join output?",
+    code: "print('-'.join(['a', 'b', 'c']))",
+    bugLine: null,
+    options: [
+      {text: "a-b-c", key: "1"},
+      {text: "-a-b-c-", key: "2"},
+      {text: "abc", key: "3"},
+      {text: "['a-b-c']", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "join intersperses '-' strictly between elements without leading/trailing dashes.",
+    hint: "Delimiter is placed between items."
+  },
 ];
