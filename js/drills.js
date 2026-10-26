@@ -987,4 +987,23 @@ export const DRILLS = [
     explanation: "Bottom-up heap construction via sift-down runs in linear O(n) mathematical time.",
     hint: "Sift-down operations decrease as depth increases."
   },
+  {
+    id: 'bo-14',
+    category: 'bigo-reflex',
+    difficulty: 4,
+    timeLimit: 10,
+    language: 'dsa',
+    prompt: "What is the time complexity of Dijkstra with a min-priority queue?",
+    code: "function dijkstra(graph, start) { ... }",
+    bugLine: null,
+    options: [
+      {text: "O((V + E) log V)", key: "1"},
+      {text: "O(V^2)", key: "2"},
+      {text: "O(E * V)", key: "3"},
+      {text: "O(V log E)", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "Each vertex is extracted in O(log V) and edges are updated in O(log V), yielding O((V + E) log V).",
+    hint: "Binary min-heap extraction and decrease-key bounds."
+  },
 ];
