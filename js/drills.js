@@ -1222,4 +1222,23 @@ export const DRILLS = [
     explanation: "git checkout -b (or git switch -c) creates and activates the branch immediately.",
     hint: "-b flag triggers branch creation."
   },
+  {
+    id: 'cr-9',
+    category: 'cli-reflex',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'bash',
+    prompt: "How do you temporarily stash uncommitted work including untracked files?",
+    code: "$ git stash ...",
+    bugLine: null,
+    options: [
+      {text: "git stash -u", key: "1"},
+      {text: "git stash pop", key: "2"},
+      {text: "git stash clear", key: "3"},
+      {text: "git stash drop", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "-u (--include-untracked) stashes newly created untracked files along with tracked modifications.",
+    hint: "-u flag includes untracked files."
+  },
 ];
