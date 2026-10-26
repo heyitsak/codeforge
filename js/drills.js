@@ -561,4 +561,18 @@ export const DRILLS = [
     explanation: "Directly mutating state array prevents React from detecting changes.",
     hint: "Use spread syntax [...items, newItem] to create a new array reference."
   },
+  {
+    id: 'bs-10',
+    category: 'bug-spotter',
+    difficulty: 2,
+    timeLimit: 10,
+    language: 'python',
+    prompt: "Spot the type comparison error.",
+    code: "age = input('Enter age: ')\nif age >= 18:\n    print('Adult')",
+    bugLine: 2,
+    options: null,
+    correctAnswer: "2",
+    explanation: "input() returns a string; comparing string to integer raises a TypeError in Python 3.",
+    hint: "Wrap input with int()."
+  },
 ];
