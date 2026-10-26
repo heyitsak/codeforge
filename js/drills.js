@@ -911,4 +911,23 @@ export const DRILLS = [
     explanation: "DFS recursion stack depth is bounded by tree height h (O(log n) balanced, O(n) skewed).",
     hint: "The call stack memory is proportional to maximum tree depth."
   },
+  {
+    id: 'bo-10',
+    category: 'bigo-reflex',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'dsa',
+    prompt: "What is the time complexity of Breadth-First Search on a graph with V vertices and E edges?",
+    code: "function bfs(graph, start) { ... }",
+    bugLine: null,
+    options: [
+      {text: "O(V + E)", key: "1"},
+      {text: "O(V * E)", key: "2"},
+      {text: "O(V^2)", key: "3"},
+      {text: "O(E log V)", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "BFS visits each vertex once and inspects each edge once in adjacency list representation: O(V + E).",
+    hint: "Every vertex and edge is traversed once."
+  },
 ];
