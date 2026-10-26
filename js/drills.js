@@ -1006,4 +1006,23 @@ export const DRILLS = [
     explanation: "Each vertex is extracted in O(log V) and edges are updated in O(log V), yielding O((V + E) log V).",
     hint: "Binary min-heap extraction and decrease-key bounds."
   },
+  {
+    id: 'bo-15',
+    category: 'bigo-reflex',
+    difficulty: 2,
+    timeLimit: 10,
+    language: 'dsa',
+    prompt: "What is the time complexity of accessing an array index by position?",
+    code: "const item = arr[42];",
+    bugLine: null,
+    options: [
+      {text: "O(1)", key: "1"},
+      {text: "O(n)", key: "2"},
+      {text: "O(log n)", key: "3"},
+      {text: "O(n^2)", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "Contiguous memory addresses allow immediate pointer offset arithmetic in O(1) time.",
+    hint: "Direct memory offset calculation."
+  },
 ];
