@@ -1067,4 +1067,18 @@ export const DRILLS = [
     explanation: "await is only valid inside async functions.",
     hint: "Add async keyword before function declaration."
   },
+  {
+    id: 'sf-9',
+    category: 'syntax-fix',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'python',
+    prompt: "Fix the invalid dictionary key assignment syntax.",
+    code: "config = { host = 'localhost' }",
+    bugLine: 1,
+    options: null,
+    correctAnswer: "config = { 'host': 'localhost' }",
+    explanation: "Python dictionaries separate keys and values with colons, not equals signs.",
+    hint: "Use colon : for key-value pair separation."
+  },
 ];
