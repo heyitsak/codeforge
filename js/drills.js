@@ -1298,4 +1298,23 @@ export const DRILLS = [
     explanation: "git branch -M renames/moves current branch forcefully.",
     hint: "-M flag moves/renames."
   },
+  {
+    id: 'cr-13',
+    category: 'cli-reflex',
+    difficulty: 4,
+    timeLimit: 10,
+    language: 'bash',
+    prompt: "How do you view which commit deleted a specific line of code?",
+    code: "$ git log ... path/to/file",
+    bugLine: null,
+    options: [
+      {text: "-S 'deleted_text'", key: "1"},
+      {text: "--grep 'deleted'", key: "2"},
+      {text: "--author 'bot'", key: "3"},
+      {text: "--stat", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "git log -S (pickaxe) searches for commits that altered the number of occurrences of specified string.",
+    hint: "-S flag searches code diffs."
+  },
 ];
