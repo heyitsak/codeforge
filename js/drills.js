@@ -547,4 +547,18 @@ export const DRILLS = [
     explanation: "Return statement is indented inside the loop, exiting on the first iteration.",
     hint: "Check the indentation of the return statement."
   },
+  {
+    id: 'bs-9',
+    category: 'bug-spotter',
+    difficulty: 4,
+    timeLimit: 10,
+    language: 'javascript',
+    prompt: "Spot the mutation issue in React state updater.",
+    code: "function updateList(newItem) {\n  items.push(newItem);\n  setItems(items);\n}",
+    bugLine: 2,
+    options: null,
+    correctAnswer: "2",
+    explanation: "Directly mutating state array prevents React from detecting changes.",
+    hint: "Use spread syntax [...items, newItem] to create a new array reference."
+  },
 ];
