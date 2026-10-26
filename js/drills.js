@@ -778,4 +778,23 @@ export const DRILLS = [
     explanation: "1 + '2' coerces to '12', and '12' + 3 coerces to string '123'.",
     hint: "Binary + with any string operand coerces to string concatenation."
   },
+  {
+    id: 'op-13',
+    category: 'output-predictor',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'python',
+    prompt: "What does set deduplication print?",
+    code: "print(len(set([1, 2, 2, 3, 3, 3])))",
+    bugLine: null,
+    options: [
+      {text: "3", key: "1"},
+      {text: "6", key: "2"},
+      {text: "1", key: "3"},
+      {text: "2", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "A set contains only unique elements: {1, 2, 3}, length 3.",
+    hint: "Sets filter duplicate entries."
+  },
 ];
