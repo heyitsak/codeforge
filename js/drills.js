@@ -683,4 +683,23 @@ export const DRILLS = [
     explanation: "Slice [0:4] starts at index 0 and stops before index 4 ('A', 'n', 't', 'i').",
     hint: "Slicing in Python is non-inclusive at the stop index."
   },
+  {
+    id: 'op-8',
+    category: 'output-predictor',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'javascript',
+    prompt: "What does typeof NaN return?",
+    code: "console.log(typeof NaN);",
+    bugLine: null,
+    options: [
+      {text: "'number'", key: "1"},
+      {text: "'nan'", key: "2"},
+      {text: "'undefined'", key: "3"},
+      {text: "'object'", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "In JavaScript, NaN represents a Not-a-Number numerical value, whose typeof is 'number'.",
+    hint: "NaN is formally part of the IEEE 754 floating-point specification."
+  },
 ];
