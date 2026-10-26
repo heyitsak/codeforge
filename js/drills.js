@@ -1053,4 +1053,18 @@ export const DRILLS = [
     explanation: "Python def statement requires a terminal colon.",
     hint: "Add a colon at the end of the header."
   },
+  {
+    id: 'sf-8',
+    category: 'syntax-fix',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'javascript',
+    prompt: "Fix the illegal async await syntax.",
+    code: "function loadData() {\n  const res = await fetch('/api');\n}",
+    bugLine: 1,
+    options: null,
+    correctAnswer: "async function loadData() {",
+    explanation: "await is only valid inside async functions.",
+    hint: "Add async keyword before function declaration."
+  },
 ];
