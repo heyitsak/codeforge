@@ -617,4 +617,18 @@ export const DRILLS = [
     explanation: "JSON.stringify omits functions, undefined, and symbols.",
     hint: "Functions are dropped when serializing to JSON."
   },
+  {
+    id: 'bs-14',
+    category: 'bug-spotter',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'python',
+    prompt: "Find the division by zero risk.",
+    code: "def average(nums):\n    return sum(nums) / len(nums)\nprint(average([]))",
+    bugLine: 2,
+    options: null,
+    correctAnswer: "2",
+    explanation: "Calling average on an empty list causes a ZeroDivisionError.",
+    hint: "Check if len(nums) == 0 before dividing."
+  },
 ];
