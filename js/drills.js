@@ -1137,4 +1137,18 @@ export const DRILLS = [
     explanation: "Python specifies base classes in parentheses: class SubClass(SuperClass):.",
     hint: "Use parentheses instead of extends."
   },
+  {
+    id: 'sf-14',
+    category: 'syntax-fix',
+    difficulty: 2,
+    timeLimit: 10,
+    language: 'javascript',
+    prompt: "Fix the object shorthand destructuring error.",
+    code: "const { name, age } = null;",
+    bugLine: 1,
+    options: null,
+    correctAnswer: "const { name, age } = {};",
+    explanation: "Destructuring null or undefined throws a TypeError.",
+    hint: "Provide a default object fallback."
+  },
 ];
