@@ -892,4 +892,23 @@ export const DRILLS = [
     explanation: "MergeSort divides in half (log n levels) and merges in linear time O(n), always giving O(n log n).",
     hint: "Consistent divide-and-conquer strategy regardless of initial order."
   },
+  {
+    id: 'bo-9',
+    category: 'bigo-reflex',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'dsa',
+    prompt: "What is the space complexity of Depth First Search (tree of height h)?",
+    code: "function dfs(node) { ... dfs(node.left); dfs(node.right); }",
+    bugLine: null,
+    options: [
+      {text: "O(h)", key: "1"},
+      {text: "O(1)", key: "2"},
+      {text: "O(n^2)", key: "3"},
+      {text: "O(2^h)", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "DFS recursion stack depth is bounded by tree height h (O(log n) balanced, O(n) skewed).",
+    hint: "The call stack memory is proportional to maximum tree depth."
+  },
 ];
