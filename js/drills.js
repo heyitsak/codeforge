@@ -1109,4 +1109,18 @@ export const DRILLS = [
     explanation: "Python uses 'except', not 'catch', for exception handling.",
     hint: "Use except keyword in Python."
   },
+  {
+    id: 'sf-12',
+    category: 'syntax-fix',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'javascript',
+    prompt: "Fix the template literal quote syntax.",
+    code: "const msg = 'User: ${user.name}';",
+    bugLine: 1,
+    options: null,
+    correctAnswer: "const msg = `User: ${user.name}`;",
+    explanation: "String interpolation requires backticks, not single quotes.",
+    hint: "Use backtick `` characters for template literals."
+  },
 ];
