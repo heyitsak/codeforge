@@ -533,4 +533,18 @@ export const DRILLS = [
     explanation: "Using var makes the variable function-scoped instead of block-scoped.",
     hint: "Prefer modern let/const for strict block scoping."
   },
+  {
+    id: 'bs-8',
+    category: 'bug-spotter',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'python',
+    prompt: "Spot the indentation and return error.",
+    code: "def calculate_total(prices):\n    total = 0\n    for p in prices:\n        total += p\n        return total",
+    bugLine: 5,
+    options: null,
+    correctAnswer: "5",
+    explanation: "Return statement is indented inside the loop, exiting on the first iteration.",
+    hint: "Check the indentation of the return statement."
+  },
 ];
