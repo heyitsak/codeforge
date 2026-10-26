@@ -1039,4 +1039,18 @@ export const DRILLS = [
     explanation: "Closing curly brace and semicolon required to complete block body.",
     hint: "Close the function block."
   },
+  {
+    id: 'sf-7',
+    category: 'syntax-fix',
+    difficulty: 2,
+    timeLimit: 10,
+    language: 'python',
+    prompt: "Fix the missing colon in this function header.",
+    code: "def greet(name)\n    return f'Hello, {name}'",
+    bugLine: 1,
+    options: null,
+    correctAnswer: "def greet(name):",
+    explanation: "Python def statement requires a terminal colon.",
+    hint: "Add a colon at the end of the header."
+  },
 ];
