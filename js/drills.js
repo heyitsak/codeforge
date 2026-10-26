@@ -930,4 +930,23 @@ export const DRILLS = [
     explanation: "BFS visits each vertex once and inspects each edge once in adjacency list representation: O(V + E).",
     hint: "Every vertex and edge is traversed once."
   },
+  {
+    id: 'bo-11',
+    category: 'bigo-reflex',
+    difficulty: 2,
+    timeLimit: 10,
+    language: 'dsa',
+    prompt: "What is the time complexity to insert at the head of a Singly Linked List?",
+    code: "newNode.next = head; head = newNode;",
+    bugLine: null,
+    options: [
+      {text: "O(1)", key: "1"},
+      {text: "O(n)", key: "2"},
+      {text: "O(log n)", key: "3"},
+      {text: "O(n^2)", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "Prepend operations require only updating one pointer reference in O(1) constant time.",
+    hint: "No elements need to be shifted."
+  },
 ];
