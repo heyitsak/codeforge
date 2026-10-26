@@ -1081,4 +1081,18 @@ export const DRILLS = [
     explanation: "Python dictionaries separate keys and values with colons, not equals signs.",
     hint: "Use colon : for key-value pair separation."
   },
+  {
+    id: 'sf-10',
+    category: 'syntax-fix',
+    difficulty: 2,
+    timeLimit: 10,
+    language: 'javascript',
+    prompt: "Fix the invalid const reassignment.",
+    code: "const count = 0;\ncount = count + 1;",
+    bugLine: 1,
+    options: null,
+    correctAnswer: "let count = 0;",
+    explanation: "const variables cannot be reassigned; use let for reassignable identifiers.",
+    hint: "Use let instead of const."
+  },
 ];
