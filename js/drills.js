@@ -1184,4 +1184,23 @@ export const DRILLS = [
     explanation: "git restore . discards working tree changes without affecting staged files.",
     hint: "Modern command to restore working tree files."
   },
+  {
+    id: 'cr-7',
+    category: 'cli-reflex',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'bash',
+    prompt: "How do you view commit history with graphical ASCII branch trees?",
+    code: "$ git log ...",
+    bugLine: null,
+    options: [
+      {text: "git log --oneline --graph", key: "1"},
+      {text: "git status -v", key: "2"},
+      {text: "git diff --stat", key: "3"},
+      {text: "git show HEAD", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "--graph renders a visual ASCII branch hierarchy alongside compact commit lines.",
+    hint: "--graph flag enables ASCII representation."
+  },
 ];
