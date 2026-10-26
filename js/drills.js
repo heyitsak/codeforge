@@ -854,4 +854,23 @@ export const DRILLS = [
     explanation: "Average case lookup in an ideal hash table is O(1) constant time.",
     hint: "Hash tables compute array indices directly."
   },
+  {
+    id: 'bo-7',
+    category: 'bigo-reflex',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'dsa',
+    prompt: "What is the worst-case time complexity of QuickSort?",
+    code: "function quickSort(arr) { ... }",
+    bugLine: null,
+    options: [
+      {text: "O(n^2)", key: "1"},
+      {text: "O(n log n)", key: "2"},
+      {text: "O(n)", key: "3"},
+      {text: "O(log n)", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "Worst case occurs with unbalanced partitions (e.g., sorted array with first element as pivot), yielding O(n^2).",
+    hint: "Think of degraded partitions resembling quadratic selection sort."
+  },
 ];
