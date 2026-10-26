@@ -505,4 +505,18 @@ export const DRILLS = [
     explanation: 'Dynamic Programming solves complex problems by breaking them down into simpler overlapping subproblems, like comparing prefixes of strings.',
     hint: 'The solution depends on the solutions to smaller subproblems (prefixes of the strings).'
   }
+  {
+    id: 'bs-6',
+    category: 'bug-spotter',
+    difficulty: 2,
+    timeLimit: 10,
+    language: 'python',
+    prompt: "Find the bug in this dictionary key lookup.",
+    code: "data = {'name': 'Alex'}\nprint(data['email'])\nprint('Done')",
+    bugLine: 2,
+    options: null,
+    correctAnswer: "2",
+    explanation: "Accessing a missing key with square brackets raises a KeyError.",
+    hint: "What method returns None instead of raising an error?"
+  },
 ];
