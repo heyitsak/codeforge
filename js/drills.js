@@ -519,4 +519,18 @@ export const DRILLS = [
     explanation: "Accessing a missing key with square brackets raises a KeyError.",
     hint: "What method returns None instead of raising an error?"
   },
+  {
+    id: 'bs-7',
+    category: 'bug-spotter',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'javascript',
+    prompt: "Identify the variable scoping bug.",
+    code: "function process() {\n  if (true) {\n    var secret = 42;\n  }\n  return secret;\n}",
+    bugLine: 3,
+    options: null,
+    correctAnswer: "3",
+    explanation: "Using var makes the variable function-scoped instead of block-scoped.",
+    hint: "Prefer modern let/const for strict block scoping."
+  },
 ];
