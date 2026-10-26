@@ -603,4 +603,18 @@ export const DRILLS = [
     explanation: "Modifying a list while iterating over it causes elements to be skipped.",
     hint: "Iterate over a copy nums[:] or use a list comprehension."
   },
+  {
+    id: 'bs-13',
+    category: 'bug-spotter',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'javascript',
+    prompt: "Spot the JSON serialization loss bug.",
+    code: "const obj = { id: 1, fn: () => 'hi' };\nconst copy = JSON.parse(JSON.stringify(obj));\nconsole.log(copy.fn());",
+    bugLine: 3,
+    options: null,
+    correctAnswer: "3",
+    explanation: "JSON.stringify omits functions, undefined, and symbols.",
+    hint: "Functions are dropped when serializing to JSON."
+  },
 ];
