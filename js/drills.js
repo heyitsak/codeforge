@@ -797,4 +797,23 @@ export const DRILLS = [
     explanation: "A set contains only unique elements: {1, 2, 3}, length 3.",
     hint: "Sets filter duplicate entries."
   },
+  {
+    id: 'op-14',
+    category: 'output-predictor',
+    difficulty: 4,
+    timeLimit: 10,
+    language: 'javascript',
+    prompt: "What does Array.prototype.filter on sparse array return?",
+    code: "const arr = [1, , 3];\nconsole.log(arr.filter(() => true).length);",
+    bugLine: null,
+    options: [
+      {text: "2", key: "1"},
+      {text: "3", key: "2"},
+      {text: "1", key: "3"},
+      {text: "undefined", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "Array iteration methods skip empty slots (holes) in sparse arrays.",
+    hint: "Empty slots are skipped during callback invocation."
+  },
 ];
