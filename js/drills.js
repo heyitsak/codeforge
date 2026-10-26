@@ -702,4 +702,23 @@ export const DRILLS = [
     explanation: "In JavaScript, NaN represents a Not-a-Number numerical value, whose typeof is 'number'.",
     hint: "NaN is formally part of the IEEE 754 floating-point specification."
   },
+  {
+    id: 'op-9',
+    category: 'output-predictor',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'python',
+    prompt: "What does bool([]) evaluate to?",
+    code: "print(bool([]), bool([0]))",
+    bugLine: null,
+    options: [
+      {text: "False True", key: "1"},
+      {text: "False False", key: "2"},
+      {text: "True True", key: "3"},
+      {text: "True False", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "Empty collections evaluate to False; non-empty collections evaluate to True even if containing 0.",
+    hint: "An empty list is falsy, but a list with one item is truthy."
+  },
 ];
