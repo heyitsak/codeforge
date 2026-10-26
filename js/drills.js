@@ -1151,4 +1151,18 @@ export const DRILLS = [
     explanation: "Destructuring null or undefined throws a TypeError.",
     hint: "Provide a default object fallback."
   },
+  {
+    id: 'sf-15',
+    category: 'syntax-fix',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'python',
+    prompt: "Fix the lambda parameter separator.",
+    code: "add = lambda x; y: x + y",
+    bugLine: 1,
+    options: null,
+    correctAnswer: "add = lambda x, y: x + y",
+    explanation: "Lambda parameters are separated by commas, not semicolons.",
+    hint: "Use comma between arguments."
+  },
 ];
