@@ -1279,4 +1279,23 @@ export const DRILLS = [
     explanation: "git add -A stages the entire working directory tree.",
     hint: "-A represents all files."
   },
+  {
+    id: 'cr-12',
+    category: 'cli-reflex',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'bash',
+    prompt: "How do you rename your local branch to main?",
+    code: "$ git branch ... main",
+    bugLine: null,
+    options: [
+      {text: "-M", key: "1"},
+      {text: "-d", key: "2"},
+      {text: "-r", key: "3"},
+      {text: "--set-upstream", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "git branch -M renames/moves current branch forcefully.",
+    hint: "-M flag moves/renames."
+  },
 ];
