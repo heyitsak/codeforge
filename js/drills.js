@@ -759,4 +759,23 @@ export const DRILLS = [
     explanation: "Multiplying a single-element list repeats the element 3 times: [0, 0, 0].",
     hint: "List multiplication repeats items."
   },
+  {
+    id: 'op-12',
+    category: 'output-predictor',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'javascript',
+    prompt: "What does 1 + '2' + 3 output?",
+    code: "console.log(1 + '2' + 3);",
+    bugLine: null,
+    options: [
+      {text: "'123'", key: "1"},
+      {text: "6", key: "2"},
+      {text: "'33'", key: "3"},
+      {text: "NaN", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "1 + '2' coerces to '12', and '12' + 3 coerces to string '123'.",
+    hint: "Binary + with any string operand coerces to string concatenation."
+  },
 ];
