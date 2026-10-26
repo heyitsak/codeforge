@@ -1165,4 +1165,23 @@ export const DRILLS = [
     explanation: "Lambda parameters are separated by commas, not semicolons.",
     hint: "Use comma between arguments."
   },
+  {
+    id: 'cr-6',
+    category: 'cli-reflex',
+    difficulty: 2,
+    timeLimit: 10,
+    language: 'bash',
+    prompt: "Which command discards all unstaged changes in working directory?",
+    code: "$ git ...",
+    bugLine: null,
+    options: [
+      {text: "git restore .", key: "1"},
+      {text: "git push --force", key: "2"},
+      {text: "git branch -d", key: "3"},
+      {text: "git commit --amend", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "git restore . discards working tree changes without affecting staged files.",
+    hint: "Modern command to restore working tree files."
+  },
 ];
