@@ -589,4 +589,18 @@ export const DRILLS = [
     explanation: "Loose equality == triggers unexpected type coercion.",
     hint: "Always use strict equality === to avoid coercion."
   },
+  {
+    id: 'bs-12',
+    category: 'bug-spotter',
+    difficulty: 4,
+    timeLimit: 10,
+    language: 'python',
+    prompt: "Spot the list modification during iteration bug.",
+    code: "nums = [1, 2, 3, 4, 5]\nfor n in nums:\n    if n % 2 == 0:\n        nums.remove(n)",
+    bugLine: 4,
+    options: null,
+    correctAnswer: "4",
+    explanation: "Modifying a list while iterating over it causes elements to be skipped.",
+    hint: "Iterate over a copy nums[:] or use a list comprehension."
+  },
 ];
