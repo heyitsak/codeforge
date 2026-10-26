@@ -575,4 +575,18 @@ export const DRILLS = [
     explanation: "input() returns a string; comparing string to integer raises a TypeError in Python 3.",
     hint: "Wrap input with int()."
   },
+  {
+    id: 'bs-11',
+    category: 'bug-spotter',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'javascript',
+    prompt: "Find the equality comparison pitfall.",
+    code: "const val = 0;\nif (val == false) {\n  console.log('Falsy match');\n}",
+    bugLine: 2,
+    options: null,
+    correctAnswer: "2",
+    explanation: "Loose equality == triggers unexpected type coercion.",
+    hint: "Always use strict equality === to avoid coercion."
+  },
 ];
