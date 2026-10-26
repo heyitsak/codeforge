@@ -1317,4 +1317,23 @@ export const DRILLS = [
     explanation: "git log -S (pickaxe) searches for commits that altered the number of occurrences of specified string.",
     hint: "-S flag searches code diffs."
   },
+  {
+    id: 'cr-14',
+    category: 'cli-reflex',
+    difficulty: 2,
+    timeLimit: 10,
+    language: 'bash',
+    prompt: "Which command lists configured remote repository URLs?",
+    code: "$ git remote ...",
+    bugLine: null,
+    options: [
+      {text: "-v", key: "1"},
+      {text: "-a", key: "2"},
+      {text: "--show", key: "3"},
+      {text: "--all", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "git remote -v displays fetch and push URLs for all remote tracking handles.",
+    hint: "-v stands for verbose."
+  },
 ];
