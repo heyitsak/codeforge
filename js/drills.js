@@ -1203,4 +1203,23 @@ export const DRILLS = [
     explanation: "--graph renders a visual ASCII branch hierarchy alongside compact commit lines.",
     hint: "--graph flag enables ASCII representation."
   },
+  {
+    id: 'cr-8',
+    category: 'cli-reflex',
+    difficulty: 2,
+    timeLimit: 10,
+    language: 'bash',
+    prompt: "Which command creates and switches to a new branch in one step?",
+    code: "$ git ... feature-login",
+    bugLine: null,
+    options: [
+      {text: "git checkout -b", key: "1"},
+      {text: "git branch -m", key: "2"},
+      {text: "git merge", key: "3"},
+      {text: "git fetch", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "git checkout -b (or git switch -c) creates and activates the branch immediately.",
+    hint: "-b flag triggers branch creation."
+  },
 ];
