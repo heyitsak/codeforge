@@ -835,4 +835,23 @@ export const DRILLS = [
     explanation: "join intersperses '-' strictly between elements without leading/trailing dashes.",
     hint: "Delimiter is placed between items."
   },
+  {
+    id: 'bo-6',
+    category: 'bigo-reflex',
+    difficulty: 2,
+    timeLimit: 10,
+    language: 'dsa',
+    prompt: "What is the time complexity of Hash Table key lookup (average)?",
+    code: "const val = map.get(key);",
+    bugLine: null,
+    options: [
+      {text: "O(1)", key: "1"},
+      {text: "O(n)", key: "2"},
+      {text: "O(log n)", key: "3"},
+      {text: "O(n log n)", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "Average case lookup in an ideal hash table is O(1) constant time.",
+    hint: "Hash tables compute array indices directly."
+  },
 ];
