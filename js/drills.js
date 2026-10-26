@@ -873,4 +873,23 @@ export const DRILLS = [
     explanation: "Worst case occurs with unbalanced partitions (e.g., sorted array with first element as pivot), yielding O(n^2).",
     hint: "Think of degraded partitions resembling quadratic selection sort."
   },
+  {
+    id: 'bo-8',
+    category: 'bigo-reflex',
+    difficulty: 2,
+    timeLimit: 10,
+    language: 'dsa',
+    prompt: "What is the time complexity of MergeSort in all cases?",
+    code: "function mergeSort(arr) { ... }",
+    bugLine: null,
+    options: [
+      {text: "O(n log n)", key: "1"},
+      {text: "O(n^2)", key: "2"},
+      {text: "O(n)", key: "3"},
+      {text: "O(log n)", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "MergeSort divides in half (log n levels) and merges in linear time O(n), always giving O(n log n).",
+    hint: "Consistent divide-and-conquer strategy regardless of initial order."
+  },
 ];
