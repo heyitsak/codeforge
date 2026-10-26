@@ -721,4 +721,23 @@ export const DRILLS = [
     explanation: "Empty collections evaluate to False; non-empty collections evaluate to True even if containing 0.",
     hint: "An empty list is falsy, but a list with one item is truthy."
   },
+  {
+    id: 'op-10',
+    category: 'output-predictor',
+    difficulty: 4,
+    timeLimit: 10,
+    language: 'javascript',
+    prompt: "Predict the Promise execution order.",
+    code: "console.log('1');\nPromise.resolve().then(() => console.log('2'));\nconsole.log('3');",
+    bugLine: null,
+    options: [
+      {text: "1, 3, 2", key: "1"},
+      {text: "1, 2, 3", key: "2"},
+      {text: "2, 1, 3", key: "3"},
+      {text: "3, 1, 2", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "Synchronous code runs first (1, 3), followed by microtasks in the event loop (2).",
+    hint: "Microtasks run after current synchronous call stack clears."
+  },
 ];
