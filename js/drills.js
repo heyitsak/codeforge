@@ -949,4 +949,23 @@ export const DRILLS = [
     explanation: "Prepend operations require only updating one pointer reference in O(1) constant time.",
     hint: "No elements need to be shifted."
   },
+  {
+    id: 'bo-12',
+    category: 'bigo-reflex',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'dsa',
+    prompt: "What is the time complexity of finding an element in a balanced Binary Search Tree (AVL/Red-Black)?",
+    code: "function searchBST(root, target) { ... }",
+    bugLine: null,
+    options: [
+      {text: "O(log n)", key: "1"},
+      {text: "O(n)", key: "2"},
+      {text: "O(1)", key: "3"},
+      {text: "O(n log n)", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "Balanced trees maintain height O(log n), halving search space at each branch.",
+    hint: "Logarithmic tree depth bounds comparison steps."
+  },
 ];
