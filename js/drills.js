@@ -1095,4 +1095,18 @@ export const DRILLS = [
     explanation: "const variables cannot be reassigned; use let for reassignable identifiers.",
     hint: "Use let instead of const."
   },
+  {
+    id: 'sf-11',
+    category: 'syntax-fix',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'python',
+    prompt: "Fix the incorrect except clause syntax.",
+    code: "try:\n    x = 1 / 0\ncatch Exception as e:\n    pass",
+    bugLine: 3,
+    options: null,
+    correctAnswer: "except Exception as e:",
+    explanation: "Python uses 'except', not 'catch', for exception handling.",
+    hint: "Use except keyword in Python."
+  },
 ];
