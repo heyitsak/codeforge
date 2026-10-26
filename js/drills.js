@@ -631,4 +631,18 @@ export const DRILLS = [
     explanation: "Calling average on an empty list causes a ZeroDivisionError.",
     hint: "Check if len(nums) == 0 before dividing."
   },
+  {
+    id: 'bs-15',
+    category: 'bug-spotter',
+    difficulty: 2,
+    timeLimit: 10,
+    language: 'javascript',
+    prompt: "Find the NaN propagation error.",
+    code: "const price = '15.99px';\nconst total = parseFloat(price) * count;\nconsole.log(total);",
+    bugLine: 2,
+    options: null,
+    correctAnswer: "2",
+    explanation: "Multiplying with undefined count results in NaN.",
+    hint: "Ensure count is defined and initialized before arithmetic."
+  },
 ];
