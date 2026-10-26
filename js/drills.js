@@ -1123,4 +1123,18 @@ export const DRILLS = [
     explanation: "String interpolation requires backticks, not single quotes.",
     hint: "Use backtick `` characters for template literals."
   },
+  {
+    id: 'sf-13',
+    category: 'syntax-fix',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'python',
+    prompt: "Fix the class inheritance syntax.",
+    code: "class Dog extends Animal:\n    pass",
+    bugLine: 1,
+    options: null,
+    correctAnswer: "class Dog(Animal):",
+    explanation: "Python specifies base classes in parentheses: class SubClass(SuperClass):.",
+    hint: "Use parentheses instead of extends."
+  },
 ];
