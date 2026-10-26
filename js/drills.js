@@ -645,4 +645,23 @@ export const DRILLS = [
     explanation: "Multiplying with undefined count results in NaN.",
     hint: "Ensure count is defined and initialized before arithmetic."
   },
+  {
+    id: 'op-6',
+    category: 'output-predictor',
+    difficulty: 2,
+    timeLimit: 10,
+    language: 'javascript',
+    prompt: "What does this array map output?",
+    code: "console.log([1, 2, 3].map(n => n * 2));",
+    bugLine: null,
+    options: [
+      {text: "[2, 4, 6]", key: "1"},
+      {text: "[1, 2, 3]", key: "2"},
+      {text: "6", key: "3"},
+      {text: "[2, 2, 2]", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "map applies the callback to every element, doubling each value to [2, 4, 6].",
+    hint: "Multiply every element by 2."
+  },
 ];
