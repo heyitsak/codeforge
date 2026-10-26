@@ -1260,4 +1260,23 @@ export const DRILLS = [
     explanation: "git cherry-pick applies the diff introduced by a specific existing commit onto HEAD.",
     hint: "Picks a single commit like a cherry."
   },
+  {
+    id: 'cr-11',
+    category: 'cli-reflex',
+    difficulty: 2,
+    timeLimit: 10,
+    language: 'bash',
+    prompt: "Which command stages all modified, deleted, and untracked files?",
+    code: "$ git ...",
+    bugLine: null,
+    options: [
+      {text: "git add -A", key: "1"},
+      {text: "git commit -m", key: "2"},
+      {text: "git push -u", key: "3"},
+      {text: "git remote -v", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "git add -A stages the entire working directory tree.",
+    hint: "-A represents all files."
+  },
 ];
