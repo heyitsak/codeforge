@@ -740,4 +740,23 @@ export const DRILLS = [
     explanation: "Synchronous code runs first (1, 3), followed by microtasks in the event loop (2).",
     hint: "Microtasks run after current synchronous call stack clears."
   },
+  {
+    id: 'op-11',
+    category: 'output-predictor',
+    difficulty: 2,
+    timeLimit: 10,
+    language: 'python',
+    prompt: "What does list repetition output?",
+    code: "print([0] * 3)",
+    bugLine: null,
+    options: [
+      {text: "[0, 0, 0]", key: "1"},
+      {text: "[0]", key: "2"},
+      {text: "0", key: "3"},
+      {text: "[[0], [0], [0]]", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "Multiplying a single-element list repeats the element 3 times: [0, 0, 0].",
+    hint: "List multiplication repeats items."
+  },
 ];
