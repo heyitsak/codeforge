@@ -1025,4 +1025,18 @@ export const DRILLS = [
     explanation: "Contiguous memory addresses allow immediate pointer offset arithmetic in O(1) time.",
     hint: "Direct memory offset calculation."
   },
+  {
+    id: 'sf-6',
+    category: 'syntax-fix',
+    difficulty: 2,
+    timeLimit: 10,
+    language: 'javascript',
+    prompt: "Fix the missing parenthesis in this arrow function.",
+    code: "const double = x => { return x * 2;",
+    bugLine: 1,
+    options: null,
+    correctAnswer: "const double = x => { return x * 2; };",
+    explanation: "Closing curly brace and semicolon required to complete block body.",
+    hint: "Close the function block."
+  },
 ];
