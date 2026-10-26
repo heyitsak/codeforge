@@ -1336,4 +1336,23 @@ export const DRILLS = [
     explanation: "git remote -v displays fetch and push URLs for all remote tracking handles.",
     hint: "-v stands for verbose."
   },
+  {
+    id: 'cr-15',
+    category: 'cli-reflex',
+    difficulty: 3,
+    timeLimit: 10,
+    language: 'bash',
+    prompt: "How do you undo the last commit while keeping its changes staged in index?",
+    code: "$ git reset ... HEAD~1",
+    bugLine: null,
+    options: [
+      {text: "--soft", key: "1"},
+      {text: "--hard", key: "2"},
+      {text: "--mixed", key: "3"},
+      {text: "--force", key: "4"}
+    ],
+    correctAnswer: "1",
+    explanation: "git reset --soft leaves changes in the staging index ready for re-committing.",
+    hint: "--soft preserves staged index changes."
+  },
 ];
